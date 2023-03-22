@@ -1,8 +1,8 @@
-import java.util.List;
+import java.util.*;
+
 
 // Los in deze klasse alle foutmeldingen op door (abstracte) klassen met variabelen en methodes te maken en een interface met methodes (en soms een import).
 public class PokemonGymImpl implements PokemonGym {
-
 
     List<Pokemon> pokemons;
 
@@ -12,12 +12,12 @@ public class PokemonGymImpl implements PokemonGym {
 
     @Override
     public void enteredTheGym(PokemonTrainer player1) {
-        PokemonGymOwner gymOwner = new PokemonGymOwner("Brock", "Pewter City", pokemons);
+        PokemonGymOwner gymOwner = new PokemonGymOwner("Brock", pokemons, "Pewter City");
         System.out.println("You have entered the " + gymOwner.getTown() + " gym");
-        System.out.println("In front of you stands a pokemontrainer");
-        System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET +": Hello stranger, I'm " + gymOwner.getName() + ", the owner of this gym. Who are you?");
+        System.out.println("In front of you stands a pokemon trainer");
+        System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET + ": Hello stranger, I'm " + gymOwner.getName() + ", the owner of this gym. Who are you?");
         System.out.println(Main.ANSI_GREEN + player1.getName() + Main.ANSI_RESET + ": I'm " + player1.getName() + " and i'm here to challenge you for a battle");
-        System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET +": So you're after my badge too, lets fight!!!");
+        System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET + ": So you're after my badge too, lets fight!!!");
 
         Pokemon gymPokemon = chooseGymPokemon(gymOwner);
         System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET +": I'll choose you, " + gymPokemon.getName());
